@@ -62,7 +62,7 @@ button {
   outline: none;
   top: 40%;
   border: 0;
-  opacity: 1;
+  opacity: 0;
   z-index: 2;
   vertical-align: middle;
   text-decoration: none;
