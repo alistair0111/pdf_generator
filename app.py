@@ -159,7 +159,7 @@ def downloadPDF():
     try: 
         return send_file(return_data, mimetype='application/pdf', as_attachment=True, cache_timeout=0, attachment_filename=filename)
     except Exception as e:
-        return redirect(url_for('index'))
+        return redirect(url_for('dashboard'))
 
     # background_remove(filename)
 
