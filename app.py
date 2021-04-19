@@ -133,22 +133,13 @@ def convertMergePDF():
 @app.route('/downloadPDF', methods=['GET'])
 def downloadPDF():
     try:
-        filename = UPLOAD_FOLDER+".pdf"
+        filename = "download.pdf"
     except Exception as e:
         print(e)
         return redirect("dashboard")
     
 
-    try:
-        filelist = [ f for f in os.listdir(UPLOAD_FOLDER) ]
-        for f in filelist:
-            os.remove(os.path.join(UPLOAD_FOLDER, f))
-    except Exception as e:
-        pass
-    try:
-        os.rmdir(UPLOAD_FOLDER)
-    except Exception as e:
-        print(e)
+    
     print("HOLA ",filename)
 
     try:

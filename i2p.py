@@ -15,7 +15,18 @@ def pdfMerger(files, folderName):
     mergedObject = PdfFileMerger()
     for pdf in os.listdir(folderName):
         mergedObject.append(PdfFileReader(open(folderName+"/"+pdf, 'rb')))
-    mergedObject.write(folderName+".pdf")
+    mergedObject.write("download.pdf")
+
+    try:
+        filelist = [ f for f in os.listdir(folderName) ]
+        for f in filelist:
+            os.remove(os.path.join(folderName, f))
+    except Exception as e:
+        pass
+    try:
+        os.rmdir(folderName)
+    except Exception as e:
+        print(e)
 
 def i2pconverter(files, folderName):
 
@@ -27,11 +38,24 @@ def i2pconverter(files, folderName):
         os.remove(folderName)
     except Exception as e:
         pass
-    pdfname = folderName + ".pdf"
+    # pdfname = folderName + ".pdf"
+    pdfname = "download.pdf"
     a4inpt = (img2pdf.mm_to_pt(210),img2pdf.mm_to_pt(297))
     layout_fun = img2pdf.get_layout_fun(a4inpt)
     with open(pdfname,'wb') as f:
         f.write(img2pdf.convert([folderName+"/"+i for i in os.listdir(folderName)], layout_fun=layout_fun))
+
+    try:
+        filelist = [ f for f in os.listdir(folderName) ]
+        for f in filelist:
+            os.remove(os.path.join(folderName, f))
+    except Exception as e:
+        pass
+    try:
+        os.rmdir(folderName)
+    except Exception as e:
+        print(e)
+    
 
 
 def i2pconverterAutoCrop(files, folderName):
@@ -47,11 +71,23 @@ def i2pconverterAutoCrop(files, folderName):
         os.remove(folderName)
     except Exception as e:
         pass
-    pdfname = folderName + ".pdf"
+    # pdfname = folderName + ".pdf"
+    pdfname = "download.pdf"
     a4inpt = (img2pdf.mm_to_pt(210),img2pdf.mm_to_pt(297))
     layout_fun = img2pdf.get_layout_fun(a4inpt)
     with open(pdfname,'wb') as f:
         f.write(img2pdf.convert([folderName+"/"+i for i in os.listdir(folderName)], layout_fun=layout_fun))
+
+    try:
+        filelist = [ f for f in os.listdir(folderName) ]
+        for f in filelist:
+            os.remove(os.path.join(folderName, f))
+    except Exception as e:
+        pass
+    try:
+        os.rmdir(folderName)
+    except Exception as e:
+        print(e)
     
 
 
