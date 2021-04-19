@@ -12,7 +12,7 @@ import time
 app = Flask(__name__)
 
 
-global UPLOAD_FOLDER 
+UPLOAD_FOLDER = ""
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -68,7 +68,7 @@ def convert():
         now = datetime.now()
         folderName += now.strftime("%d-%m-%Y--%H-%M-%S")
 
-        global UPLOAD_FOLDER 
+        global UPLOAD_FOLDER
         UPLOAD_FOLDER = os.path.join(folderName)
 
         if not os.path.isdir(UPLOAD_FOLDER):
@@ -93,6 +93,7 @@ def convertAutoCrop():
         now = datetime.now()
         folderName += now.strftime("%d-%m-%Y--%H-%M-%S")
 
+        global UPLOAD_FOLDER
         UPLOAD_FOLDER = os.path.join(folderName)
 
         if not os.path.isdir(UPLOAD_FOLDER):
@@ -117,6 +118,7 @@ def convertMergePDF():
         now = datetime.now()
         folderName += now.strftime("%d-%m-%Y--%H-%M-%S")
 
+        global UPLOAD_FOLDER
         UPLOAD_FOLDER = os.path.join(folderName)
 
         if not os.path.isdir(UPLOAD_FOLDER):
@@ -130,6 +132,7 @@ def convertMergePDF():
 
 @app.route('/downloadPDF', methods=['GET'])
 def downloadPDF():
+    global UPLOAD_FOLDER
     filename = UPLOAD_FOLDER+".pdf"
     try:
         filelist = [ f for f in os.listdir(UPLOAD_FOLDER) ]
