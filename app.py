@@ -179,7 +179,8 @@ def rm(path):
     
 # schedule.every(5).minutes.do(job)
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug = True)
 
 # while True:
 #     schedule.run_pending()
