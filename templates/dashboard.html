@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DashBoard</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/dashboard.css') }}">
+    </head>
+    <body>
+        <form action="/normalPDF">
+            <button class="big-button">Image to PDF</button>
+        </form>
+        <form action="/autoCropPDF">
+            <button class="big-button" type="submit">AutoCrop Image To PDF</button>
+        </form>
+        <form action="/mergePDF">
+            <button class="big-button">Merge PDF</button>
+        </form>
+    </body>
+</html>
+
