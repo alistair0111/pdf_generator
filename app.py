@@ -93,7 +93,6 @@ def convertAutoCrop():
         now = datetime.now()
         folderName += now.strftime("%d-%m-%Y--%H-%M-%S")
 
-        global UPLOAD_FOLDER 
         UPLOAD_FOLDER = os.path.join(folderName)
 
         if not os.path.isdir(UPLOAD_FOLDER):
@@ -118,7 +117,6 @@ def convertMergePDF():
         now = datetime.now()
         folderName += now.strftime("%d-%m-%Y--%H-%M-%S")
 
-        global UPLOAD_FOLDER 
         UPLOAD_FOLDER = os.path.join(folderName)
 
         if not os.path.isdir(UPLOAD_FOLDER):
