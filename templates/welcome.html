@@ -36,6 +36,11 @@
             duration: 750
         })
         tl.add({
+            targets: 'button',
+            top: "40%",
+            opacity: 1
+        })
+        tl.add({
             targets: 'section div',
             width: "100%",
             backgroundColor: '#c2f0c2',
@@ -52,11 +57,7 @@
             opacity: 1,
             duration: 4000
         }, '-=1600')
-        tl.add({
-            targets: 'button',
-            top: "40%",
-            opacity: 1
-        }, '-=1600')
+        
         
 
         let rotateMe = anime({
