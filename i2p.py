@@ -73,10 +73,8 @@ def i2pconverterAutoCrop(files, folderName):
         pass
     # pdfname = folderName + ".pdf"
     pdfname = "download.pdf"
-    a4inpt = (img2pdf.mm_to_pt(210),img2pdf.mm_to_pt(297))
-    layout_fun = img2pdf.get_layout_fun(a4inpt)
     with open(pdfname,'wb') as f:
-        f.write(img2pdf.convert([folderName+"/"+i for i in os.listdir(folderName)], layout_fun=layout_fun))
+        f.write(img2pdf.convert([folderName+"/"+i for i in os.listdir(folderName)]))
 
     try:
         filelist = [ f for f in os.listdir(folderName) ]
