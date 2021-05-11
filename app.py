@@ -151,7 +151,6 @@ def downloadPDF():
     except Exception as e:
         print(e)
 
-    # print("Above os.remove()")
     
     try: 
         return send_file(return_data, mimetype='application/pdf', as_attachment=True, cache_timeout=0, attachment_filename=filename)
@@ -159,9 +158,9 @@ def downloadPDF():
         print("Error: ",e)
         return redirect(url_for('dashboard'))
 
-    # background_remove(filename)
+   
 
-    # return send_file(filename, mimetype='application/pdf', as_attachment=True, cache_timeout=0)
+
 
 
 def background_remove(path):
